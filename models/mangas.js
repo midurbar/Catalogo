@@ -11,7 +11,8 @@ const Manga = sequelize.define('mangas', {
     Vol: {type: Sequelize.INTEGER, allowNull: false},
     Tipo: {type: Sequelize.STRING(50), allowNull: false},
     Descrp: {type: Sequelize.STRING(500), allowNull: false},
-    Img: {type: Sequelize.STRING(10), allowNull: false}
+    Img: {type: Sequelize.STRING(10), allowNull: false},
+    Id_Bib: {type: Sequelize.INTEGER, allowNull: false}
 });
 
 
