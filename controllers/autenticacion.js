@@ -18,7 +18,7 @@ function login(req, res) {
     .then(usuario => {
       if (usuario) {
         req.session.usuario = usuario;
-        res.redirect("/dashboard");
+        res.redirect("/catalogo/dashboard");
       } else {
         res.render("login", {mensaje: "Usuario o contraseña incorrectos."});
       }
