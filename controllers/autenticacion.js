@@ -62,8 +62,35 @@ function controlAcceso() {
   }
 }
 
-module.exports = {
-    login,
-    logout,
-    controlAcceso
-}
+
+/**
+ * Función de control de Acceso para el administrador.
+ * Comprueba que el usuario introducidos sea correcto
+ * mediante la id. En caso de que no lo sea nos 
+ * redirige al login
+ * @param {controlAccesoAdmin} req
+ */
+function controlAccesoAdmin() {
+    return function (req, res, next) {
+      const usuario = req.session.usuario;
+      if (usuario) {
+          Usuario.findByPk(usuario.id, {
+          })
+          .then(usuario => {
+              if (usuario.Admin) {
+                  next();
+              } else {
+                  res.redirect("/catalogo/dashboard");
+              }
+          })    
+      } else {
+          res.redirect("/login");
+      }
+  }}
+  
+  module.exports = {
+      login,
+      logout,
+      controlAcceso,
+      controlAccesoAdmin
+  }

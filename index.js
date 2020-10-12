@@ -9,7 +9,7 @@ const multer  = require('multer');
 /**
  * Importar las funciones de la carpeta controllers para llamarlas desde las rutas.
  */
-const {login, logout, controlAcceso} = require('./controllers/autenticacion')
+const {login, logout, controlAcceso, controlAccesoAdmin} = require('./controllers/autenticacion')
 const {dashboard} = require('./controllers/dashboard')
 const { mostrarAnimes, crearAnime, listarAnimes, leerAnime, modificarAnime, eliminarAnime} = require('./controllers/animes')
 //const { mostrarMangas, crearManga, listarMangas, leerManga, modificarManga, eliminarManga} = require('./controllers/mangas')
