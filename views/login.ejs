@@ -1,0 +1,156 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<!------ Include the above in your HEAD tag ---------->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="Favicon.png">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+        <!-- Iconos de los inputs -->
+        <style>
+            .user input[type=text] {
+                padding-left: 40px;
+            }
+            
+            .user {
+                position: relative;
+            }
+            .user i {
+                position: absolute;
+                left: 24px;
+                top: 12px;
+                padding: 9px, 8px;
+                color: #aaa;
+            }
+            .password input[type=password] {
+                padding-left: 40px;
+            }
+            
+            .password {
+                position: relative;
+            }
+            .password i {
+                position: absolute;
+                left: 24px;
+                top: 12px;
+                padding: 9px, 8px;
+                color: #aaa;
+            }
+            main {
+                background-color:rgb(42, 49, 71);
+            }
+            .cotainer {
+                padding-top: 7%;
+                padding-bottom: 8%;
+            }
+        </style>
+
+        <title>Login</title>
+    </head>
+    <body>
+
+        <!-- Menú login -->
+
+        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+        </nav>
+
+        <main class="login-form">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header"><h3>Login</h3></div>
+                            <div class="card-body"></div>
+                            
+                            <!-- Mensaje de error (Usuario y/o Contraseña incorrecto/a ) -->
+
+                            <form action="/login" method="post">
+                                <div class="form-group row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <% if (typeof mensaje !== 'undefined') { %>
+                                            <div class="alert alert-danger" role="alert">
+                                                <%= mensaje %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+
+                                <!-- Inputs con iconos -->
+                            
+                                <div class="form-group row">
+                                    <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
+                                    <div class="col-md-6 user">
+
+                                        <!-- Icono user -->
+                                        <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+
+                                        <input type="text" id="nombre" class="form-control" name="nombre" required autofocus>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                    <div class="col-md-6 password">
+                                            
+                                        <!-- Icono lock -->
+                                        <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+
+                                        <input type="password" id="password" class="form-control" name="password" required>
+                                    </div>
+                                </div>
+
+                                <!-- Checkbox para mantener el usuario y la contraseña al entrar en la página -->
+
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="remember"> Recuérdame
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Botón de iniciar sesión y enlace para renovar contraseña -->
+
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Iniciar sesión
+                                    </button>
+                                    <a href="#" class="btn btn-link">
+                                        ¿Olvidaste tu contraseña?
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </body>
+</html>
