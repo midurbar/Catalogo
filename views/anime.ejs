@@ -9,5 +9,46 @@
     </head>
 
     <body>
+        <%- include("navbar") %>
+        <div class="row">
+        <%- include("menu") %>
+        <main id="cuerpo" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" role="main">
+        <div id="categoria">
+          <h2><%= anime.Nombre %> </h2>
+              <form action="/catalogo/animes/<%= anime.id %>" method="POST">
+                <label for="nombre">Nombre</label>
+                  <input type="text" id="campo" name="Nombre" value="<%= anime.Nombre%>" placeholder="Escriba un nombre para el Anime" required>
+                  
+                <!-- <label for="admin">Ocultar</label>
+                <% if (categoria.hidden == "true") { %>
+                  <input type="radio" name="hidden" value="true" checked required> Si
+                  <input type="radio" name="hidden" value="false" required> No
+                <% } else { %>
+                  <input type="radio" name="hidden" value="true" required> Si
+                  <input type="radio" name="hidden" value="false" checked required> No
+                <% } %>
+                <br>
+                <br>
+                <input type="submit" id="button" class="full" value="Guardar">
+                <a href="/gestor/categorias" id="button"> Cancelar </a>
+              </form>
+              <% var count = 0;
+               for (var n = 0; n < subcategorias.length; n++) { 
+                 if (subcategorias[n].categoriaId == categoria.id) { 
+                  count = count + 1; 
+               } 
+               } %>
+               <% if (count > 0) { %>
+                  <form onsubmit="return confirm('¿Seguro que quieres eliminar esta categoria?')" action="/categorias/<%= categoria.id %>/eliminar" method="POST">
+                    <input type="submit" id="eliminar" value="Eliminar" disabled>
+                  </form>
+                <% } else { %>
+                  <form onsubmit="return confirm('¿Seguro que quieres eliminar esta categoria?')" action="/categorias/<%= categoria.id %>/eliminar" method="POST">
+                    <input type="submit" id="eliminar" value="Eliminar">
+                  </form>
+                <% } %> -->
+        </div>
+        </main>
+        </div>
     </body>
 </html>

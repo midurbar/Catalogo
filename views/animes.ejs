@@ -3,11 +3,36 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Anime</title>
+        <title>Animes</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/main.css">
     </head>
 
     <body>
+        <%- include("navbar") %>
+        <div class="row">
+          <%- include("menu") %>
+          <main id="cuerpo" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" role="main">
+            <div id="animes">
+              <h2>Animes</h2>
+              <table>
+                <% for (var i=0; i <animes.length; i++) { %>
+                    <% if (animes[i].Id_Bib = usuario.Id_Bib) { %>
+                     <tr>
+                        <td id="bug">
+                            <a id="link" href="/catalogo/animes/<%=animes[i].Id%>"> 
+                                <%= animes[i].nombre %> 
+                            </a>
+                        </td>
+                     </tr>
+                    <% } %>
+                <% } %>
+              </table>
+              <br>
+              <a href="/catalogo/anime/crear" id="download"> Crear </a>
+            </div>
+          </main>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </body>
 </html>
