@@ -71,7 +71,7 @@ app.get('/catalogo/animes/crear', controlAcceso(), mostrarAnimes)
 
 
 // Ruta por defecto
-app.get('/catalogo', controlAcceso(), (req, res) => res.redirect("/catalogo/dashboard"))
+app.get('/catalogo', controlAcceso(), (req, res) => res.redirect("/catalogo/login"))
 
 
 //carpeta de media
