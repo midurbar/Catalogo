@@ -40,4 +40,37 @@ function listarAnimes(req, res) {
        res.render("error", {err})
     })
  }
- 
+
+/**
+ * 
+ * 
+ * Funcion que recoge los datos del formulario.
+ * TODO: coger los datos de req.body y procesarlos
+      Anime.create(req.body)
+req.file.filename = req.body.Nombre+".jpg";
+Con aspirante.findorcreate encuentra o crea el aspirante si no existe. 
+Luego con el if nos aseguramos de que si no existe el created se asignen los valores y se
+guarde todo con aspirante.save()
+@param {cargarDatos} req 
+ */
+
+function cargarDatos(req, res) {
+    
+
+    const nombreNuevo = req.body.Nombre+".jpg";
+    const datos = {
+        ...req.body,
+        jpg: nombreNuevo
+    };
+
+    Anime.findOrCreate({where: {Nombre: req.body.Nombre}, defaults: datos})
+    .then(([anime, created])=>{
+        if (!created) Object.assign(anime, datos)
+        return Anime.save()
+    })
+    // 
+    .catch(err=>{
+        console.log(err);
+        res.render("error", {err})
+   })
+}

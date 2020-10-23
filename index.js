@@ -11,7 +11,7 @@ const multer  = require('multer');
  */
 const {login, logout, controlAcceso, controlAccesoAdmin} = require('./controllers/autenticacion')
 const {dashboard} = require('./controllers/dashboard')
-const { mostrarAnimes, crearAnime, listarAnimes, leerAnime, modificarAnime, eliminarAnime} = require('./controllers/animes')
+const { mostrarAnimes, crearAnime, listarAnimes, leerAnime, modificarAnime, eliminarAnime, cargarDatos} = require('./controllers/animes')
 //const { mostrarMangas, crearManga, listarMangas, leerManga, modificarManga, eliminarManga} = require('./controllers/mangas')
 //const { mostrarNovelas, crearNovela, listarNovelas, leerNovela, modificarNovela, eliminarNovela} = require('./controllers/novelas')
 //const { crearUsuario, listarUsuarios, leerUsuario, modificarUsuario, eliminarUsuario } = require('./controllers/usuarios')
@@ -55,8 +55,13 @@ app.post('/login', login)
 app.get('/logout', logout)
 
 
+// Rutas para que el usuario cargue las imagenes 
+app.post('/subirImagen', cpUpload, cargarDatos)
+
+//Direccion de las rutas de cada modelo
+
 // Rutas de Animes
-app.post('/catalogo/animes', controlAcceso(), crearAnime)
+app.post('/catalogo/animes', controlAcceso(), cpUpload, crearAnime)
 app.get('/catalogo/animes', controlAcceso(), listarAnimes)
 app.get('/catalogo/animes/:id', controlAcceso(), leerAnime)
 app.post('/catalogo/animes/:id', controlAcceso(), modificarAnime)
@@ -67,3 +72,9 @@ app.get('/catalogo/animes/crear', controlAcceso(), mostrarAnimes)
 
 // Ruta por defecto
 app.get('/catalogo', controlAcceso(), (req, res) => res.redirect("/catalogo/dashboard"))
+
+
+//carpeta de media
+app.use("media", express.static('media'));
+
+app.listen(3000)
