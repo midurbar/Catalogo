@@ -11,7 +11,7 @@ const multer  = require('multer');
  */
 const {login, logout, controlAcceso, controlAccesoAdmin} = require('./controllers/autenticacion')
 const {dashboard} = require('./controllers/dashboard')
-const { mostrarAnimes, crearAnime, listarAnimes, leerAnime, modificarAnime, eliminarAnime, cargarDatos} = require('./controllers/animes')
+const { crearAnime, listarAnimes, leerAnime, modificarAnime, eliminarAnime, cargarDatos} = require('./controllers/animes')
 //const { mostrarMangas, crearManga, listarMangas, leerManga, modificarManga, eliminarManga} = require('./controllers/mangas')
 //const { mostrarNovelas, crearNovela, listarNovelas, leerNovela, modificarNovela, eliminarNovela} = require('./controllers/novelas')
 //const { crearUsuario, listarUsuarios, leerUsuario, modificarUsuario, eliminarUsuario } = require('./controllers/usuarios')
@@ -66,9 +66,11 @@ app.get('/catalogo/animes', controlAcceso(), listarAnimes)
 app.get('/catalogo/animes/:id', controlAcceso(), leerAnime)
 app.post('/catalogo/animes/:id', controlAcceso(), modificarAnime)
 app.post('/catalogo/animes/:id/eliminar', controlAcceso(), eliminarAnime)
-app.get('/catalogo/animes/crear', controlAcceso(), mostrarAnimes)
-
-
+app.get('/catalogo/animes/crear', controlAcceso(), (req, res) => {
+  const usuario = req.session.usuario;
+  res.render('crearAnime', {usuario})
+})
+app.post('/catalogo/animes/crear', controlAcceso(), crearAnime)
 
 // Ruta por defecto
 app.get('/catalogo', controlAcceso(), (req, res) => res.redirect("/login"))

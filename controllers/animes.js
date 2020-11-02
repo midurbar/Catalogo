@@ -44,6 +44,78 @@ function listarAnimes(req, res) {
 /**
  * 
  * 
+ * Funcion que permite leer un anime.
+La localizamos mendiante la clave primaria con findByPk,
+y en caso de que no exista con el else mostramos un error.
+Tambien le pasamos un catch por si acaso.
+@param {leerAnime} req 
+ */
+
+function  leerAnime(req,res){
+    const usuario = req.session.usuario;
+    Anime.findByPk(req.params.id)
+    .then(animeA=>{
+        //aquí si el aspirante existe nos da ok.. pero si no existe nos dará el no encontrado
+       if (anime) res.render("anime", {animeA, usuario})
+       else res.render("error")
+    })
+    .catch(err=>{
+        res.render("error", {err})
+    })
+}
+
+/**
+ * Función para modificar un anime. Lo localizamos mediante la clave primaria
+con findbypk. Importante tener el anime.save() para que se guarden los cambios que modifiquemos.
+Como siempre el res.render y el catch por si hay algún tipo de error.
+ * @param {modificarAnime} req 
+ * @param {*} res 
+ */
+function modificarAnime(req, res) {
+   Anime.findByPk(req.params.id)
+   .then(anime => {
+       if (anime) {
+           Object.assign(anime, req.body)
+           anime.save()
+           .then(() => {
+               res.redirect("/catalogo/animes")
+           })
+       }
+       else res.render("error")
+   })
+   .catch(err => {
+       res.render("error", {err})
+   })
+}
+
+/**
+ * Función que borra un anime.
+Lo localizamos con la primary key y luego le pasamos un destroy para que lo elimine.
+Luego hacemos un res.render de anime para ver que efectivamente ese anime ya está eliminado.
+Como siempre también aplicamos un res.render de error y un catch por si hay algún problema.
+ * @param {eliminarUsuario} req 
+ 
+ */
+function eliminarAnime(req, res) {
+   Anime.findByPk(req.params.id)
+   .then(anime => {
+       if (anime) {
+           anime.destroy()
+           .then(() => {
+               res.redirect("/catalogo/animes")
+           })
+       } else {
+           res.render("error")
+       }
+   })
+   .catch(err => {
+       res.render("error", {err})
+   })
+}
+
+/**
+ * 
+ * 
  * Funcion que recoge los datos del formulario.
  * TODO: coger los datos de req.body y procesarlos
       Anime.create(req.body)
@@ -65,7 +137,7 @@ function cargarDatos(req, res) {
 
     Anime.findOrCreate({where: {Nombre: req.body.Nombre}, defaults: datos})
     .then(([anime, created])=>{
-        if (!created) Object.assign(anime, datos)
+        if (!created) Object.assign(anime, datos) 
         return Anime.save()
     })
     // 
@@ -73,4 +145,13 @@ function cargarDatos(req, res) {
         console.log(err);
         res.render("error", {err})
    })
+}
+
+module.exports = {
+   crearAnime, 
+   listarAnimes, 
+   leerAnime, 
+   modificarAnime, 
+   eliminarAnime,
+   cargarDatos
 }
