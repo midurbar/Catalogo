@@ -15,8 +15,38 @@
         <div id="anime">
           <h2> Crear Anime </h2>
               <form action="/catalogo/anime/crear" method="POST">
-                
+                <label for="Nombre">Nombre</label>
+                  <input type="text" id="campo" name="Nombre" value="" placeholder="Escriba el nombre del Anime" required>
+                <label for="Ep">Episodios</label>
+                  <input type="text" id="campo" name="Ep" value="" placeholder="Escriba el numero de episodios" required>
+                <label for="Tipo">Tipo</label>
+                  <input type="text" id="campo" name="Tipo" value="" placeholder="Escriba el tipo de anime" required>
+                <label for="Descrp">Nombre</label>
+                <textarea class="form-control" name="notas" id="Descrp" rows="3" required></textarea>
+                <br>
+
+                <label for=""></label>
+                  <input id="alertjpg" type="button" class="form-control-file btn btn-primary btn-lg" onclick="document.getElementById('exampleFormControlFile1').click()" value="Cargue aquí una imagen (formato JPG)"></button>
+                  <input type="file" name="jpg" oninput="document.getElementById('alertjpg').value = 'Imagen Cargada'; document.getElementById('alertjpg').style.backgroundColor = '#3ab565'"
+                    class="form-control-file btn btn-primary btn-lg"
+                    id="exampleFormControlFile1" style="display:none" required>
+
+                <br> <br>
+                <input type="submit" id="button" value="Guardar">
+                <a href="/catalogo/animes" id="button"> Cancelar </a>
               </form>
+
+              <script>
+                function verifyJPG() {
+                  var jpg = document.getElementById("alertjpg")
+                  if (jpg.value == "Cargue aquí una imagen (formato JPG)") {
+                    alert("Necesita introducir una imagen (JPG)")
+                  }
+                }
+              </script>
+              <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         </div>
       </main>
     </div>
