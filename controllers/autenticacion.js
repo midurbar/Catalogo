@@ -14,15 +14,18 @@ const md5 = require('md5');
  */
 function login(req, res) {
     const {nombre, password} = req.body;
+
     Usuario.findOne({where: {nombre, password: md5(password)}})
     .then(usuario => {
       if (usuario) {
+        console.log('findOne', usuario)
         req.session.usuario = usuario;
-        res.redirect("/catalogo/dashboard");
+        //res.redirect("/catalogo/dashboard");
+        res.send(usuario);
       } else {
         res.render("login", {mensaje: "Usuario o contraseña incorrectos."});
       }
-    })
+    }).catch(e=> console.log(e.message))
 }
 /**
  * 

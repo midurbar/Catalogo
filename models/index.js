@@ -9,7 +9,6 @@ const Biblioteca = require("./bibliotecas");
  * Relaciones de la base de datos
  */
 Biblioteca.belongsTo(Usuario);
-Usuario.belongsTo(Biblioteca);
 Biblioteca.hasMany(Anime);
 Anime.belongsTo(Biblioteca);
 Biblioteca.hasMany(Manga);
