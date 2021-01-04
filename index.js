@@ -10,7 +10,7 @@ const multer  = require('multer');
  * Importar las funciones de la carpeta controllers para llamarlas desde las rutas.
  */
 const {login, logout, controlAcceso, controlAccesoAdmin} = require('./controllers/autenticacion')
-const {dashboard} = require('./controllers/dashboard')
+const { dashboard} = require('./controllers/dashboard')
 const { crearAnime, listarAnimes, leerAnime, modificarAnime, eliminarAnime, cargarDatos} = require('./controllers/animes')
 //const { mostrarMangas, crearManga, listarMangas, leerManga, modificarManga, eliminarManga} = require('./controllers/mangas')
 //const { mostrarNovelas, crearNovela, listarNovelas, leerNovela, modificarNovela, eliminarNovela} = require('./controllers/novelas')
@@ -71,6 +71,9 @@ app.get('/catalogo/animes/crear', controlAcceso(), (req, res) => {
   res.render('crearAnime', {usuario})
 })
 app.post('/catalogo/animes/crear', controlAcceso(), crearAnime)
+
+//Ruta de dashboard
+//app.get('/catalogo/dashboard', controlAcceso(), dashboard)
 
 // Ruta por defecto
 app.get('/catalogo', controlAcceso(), (req, res) => res.redirect("/login"))

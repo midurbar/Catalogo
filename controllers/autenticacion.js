@@ -18,10 +18,9 @@ function login(req, res) {
     Usuario.findOne({where: {nombre, password: md5(password)}})
     .then(usuario => {
       if (usuario) {
-        console.log('findOne', usuario)
         req.session.usuario = usuario;
         //res.redirect("/catalogo/dashboard");
-        res.send(usuario);
+        res.render("dashboard", {usuario})
       } else {
         res.render("login", {mensaje: "Usuario o contraseña incorrectos."});
       }
