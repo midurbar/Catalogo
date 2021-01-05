@@ -1,0 +1,441 @@
+/* Generales */
+html{
+    margin: 0;
+    color:rgb(42, 49, 71);
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  /* #menu, #cuerpo {
+    box-sizing: border-box;
+  }
+   */
+  
+  
+  .feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+  }
+  
+  /*
+   * Sidebar
+   */
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+  /* 
+  @media (max-width: 767.98px) {
+    .sidebar {
+      top: 5rem;
+    }
+  } */
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+  
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+      position: -webkit-sticky;
+      position: sticky;
+    }
+  }
+  
+  .sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .sidebar .nav-link .feather {
+    margin-right: 4px;
+    color: #999;
+  }
+  
+  .sidebar .nav-link.active {
+    color: #007bff;
+  }
+  
+  .sidebar .nav-link:hover .feather,
+  .sidebar .nav-link.active .feather {
+    color: inherit;
+  }
+  
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+  
+  /*
+   * Navbar
+   */
+  
+  .navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  }
+  
+  .navbar .navbar-toggler {
+    top: .25rem;
+    right: 1rem;
+  }
+  
+  .navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+  
+  .form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+  }
+  
+  .form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  }
+  
+  
+  
+  
+  
+  /* Menú superior */
+  #topbar {
+    display: flex;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Menú Lateral */
+  #menu{
+    margin-top: 3em;
+    width: 25%;
+    /* float: left; */
+    display: block;
+    background-color:rgb(42, 49, 71);
+  }
+  
+  #menu a {
+    text-align: left;
+    color: #fff;
+  
+  }
+  
+  /* Contenido */
+  object{
+    width: 100%;
+  }
+  #cuerpo{
+    /* width: 73%; */
+    /* float: left; */
+    margin-left: auto;
+  }
+  /* #datos{ */
+    /* width: 45%; */
+    /* float: left; */
+  /* } */
+  a{
+    display: block;
+    padding: 1em 1em;
+    text-decoration: none;
+    text-align: center;
+  }
+  a:hover{
+    background-color: rgb(248, 188, 77);
+    color: rgb(42, 49, 71);
+  }
+  select{
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+  td{
+    width: 100%;
+    padding: 0.6em;
+    background-color:rgb(42, 49, 71);
+    color: white;
+  }
+  img{
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+  }
+  #GAP{
+    width: 110%;
+    background-color: rgb(42, 49, 71);
+    color: white;
+    margin: 0;
+  }
+  #GAP:hover{
+    background-color: rgb(248, 188, 77);
+    color: rgb(42, 49, 71);
+  }
+  /* Texto */
+  label{
+    display: block;
+    width: 95%;
+    margin-bottom: 0.2em;
+    text-align: left;
+  }
+  h2{
+    margin: 2ex 0 1em 0;
+    padding: 0;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+  h3{
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    font-size: 1.2em;
+  }
+  p{
+    border: 1px solid rgb(71, 71, 71);
+    padding: 0.5em;
+    margin: 0.5em 0;
+  }
+  
+  /* Específicos */
+  #pdf{
+    /* width: 52%; */
+    /* float: left; */
+    margin-left: 3%;
+  }
+  #checkbox{
+    margin-bottom: 1em;
+  }
+  .table{
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  #link{
+    padding: 0;
+    color:rgb(248, 188, 77);
+    text-align: left;
+    background-color:rgb(42, 49, 71);
+    text-decoration: none;
+  }
+  #link:hover{
+    color:rgb(255, 237, 155);
+  }
+  #logout{
+    margin-top: 21em;
+  }
+  #menu:first-child{
+    padding-top: 0;
+  }
+  #campo{
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 80%;
+  }
+  .campo{
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 80%;
+  }
+  #bug{
+    width: 1%;
+    padding: 0.5em;
+  }
+  .auto{
+    width: 19%;
+  }
+  
+  /* Botones */
+  .button{
+    width: 15%;
+    background-color:rgb(42, 49, 71);
+    color:rgb(248, 188, 77);
+    padding: 0.2em 0;
+    border: solid 2px rgb(42, 49, 71);
+    border-radius: 25px;
+    outline: none;
+  }
+  .button:hover{
+    background-color:rgb(248, 188, 77);
+    color:rgb(42, 49, 71);
+  }
+  .middle{
+    margin-top: 1em;
+    width: 100%;
+  }
+  button{
+    width: 25%;
+    background-color:rgb(42, 49, 71);
+    color:rgb(248, 188, 77);
+    padding: 0.2em 0;
+    border: solid 2px rgb(42, 49, 71);
+    border-radius: 25px;
+    margin-bottom: 1em;
+    outline: none;
+  }
+  button:hover{
+    background-color:rgb(248, 188, 77);
+    color:rgb(42, 49, 71);
+  }
+  button:disabled, #button:disabled, .button:disabled, #crear:disabled, #eliminar:disabled {
+    background-color:rgb(63, 70, 90);
+    color: rgb(180, 180, 180);
+    font-weight: normal;
+    border: 2px solid rgb(63, 70, 90);
+  }
+  #eliminar:disabled:hover, button:disabled:hover, #button:disabled:hover, .button:disabled:hover, #crear:disabled:hover {
+    background-color:rgb(63, 70, 90);
+    color: rgb(180, 180, 180);
+    font-weight: normal;
+    border: 2px solid rgb(63, 70, 90);
+    cursor: auto;
+  } 
+  #button, #cancelar, #crear, #eliminar{
+    display: inline-flexbox;
+    width: 50%;
+    background-color:rgb(42, 49, 71);
+    color:rgb(248, 188, 77);
+    padding: 0 0 0 0;
+    border: solid 2px rgb(42, 49, 71);
+    border-radius: 15px;
+    margin-bottom: 1em;
+    font-weight: normal;
+    outline: none;
+    cursor: pointer;
+  }
+  #button:hover, #cancelar:hover, #crear:hover, #eliminar:hover{
+    background-color:rgb(248, 188, 77);
+    color:rgb(42, 49, 71);
+  }
+  #cancelar{
+    font: normal;
+  }
+  #download{
+    margin-top: 1em;
+    width: 100%;
+    background-color:rgb(42, 49, 71);
+    color:rgb(248, 188, 77);
+    padding: 0.2em 0;
+    border: solid 2px rgb(42, 49, 71);
+    border-radius: 25px;
+    outline:none;
+  }
+  #download:hover{
+    background-color:rgb(248, 188, 77);
+    color:rgb(42, 49, 71);
+  }
+  #anterior{
+    float: left;
+  }
+  #siguiente{
+    float: right;
+  }
+  #anterior:hover, #siguiente:hover{
+    background-color:rgb(248, 188, 77);
+    color:rgb(42, 49, 71);
+  }
+  #eliminar{
+    background-color: rgb(168, 56, 71);
+    color: white;
+    border-color: rgb(168, 56, 71);
+    width: 50%;
+  }
+  #eliminar:hover{
+    background-color:  rgb(230, 51, 75);
+    color: white;
+    border-color: rgb(42, 49, 71);
+  }
+  .full{
+    width: 50%;
+  }
+  
+  /* Para pantallas verticales (móviles) */
+  @media only screen and (max-width: 767.98px) {
+    #menu{
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1em;
+      margin-top: 0;
+    }
+    #menu a{
+      text-align: center;
+    }
+    #cuerpo{
+      width: 90%;
+      margin: auto;
+    }
+    /* #datos{ */
+      /* width: 100%; */
+    /* } */
+    #pdf{
+      /* width: 100%; */
+      margin: 0.5em;
+    }
+    h2{
+      text-align: center;
+      margin-bottom: 1em;
+      margin-left: 1em;
+    }
+    #usuarios{
+      margin: 0;
+    }
+    #opciones{
+      margin-bottom: 1em;
+    }
+    #table{
+      overflow: unset;
+      max-height: none;
+      height: auto;
+    }
+    /* Botones */
+    .button{
+      width: 20%;
+    }
+    #button {
+      width: 100%;
+    }
+    button{
+      width: 100%;
+    }
+    #cancelar, #crear, #eliminar{
+      width: 100%;
+    }
+    #logout{
+      margin-top: auto;
+    }
+    a{
+      padding: 0.5em 1em;
+    }
+    .middle{
+      width: 100%;
+      margin-top: 2em;
+    }
+    #tid, #tape, #tdni{
+      display: none;
+    }
+  }
