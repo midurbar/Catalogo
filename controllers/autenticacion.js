@@ -19,8 +19,9 @@ function login(req, res) {
     .then(usuario => {
       if (usuario) {
         req.session.usuario = usuario;
-        //res.redirect("/catalogo/dashboard");
-        res.render("dashboard", {usuario})
+        res.redirect("/catalogo");
+        //res.render("dashboard", {usuario})
+
       } else {
         res.render("login", {mensaje: "Usuario o contraseña incorrectos."});
       }
@@ -82,7 +83,7 @@ function controlAccesoAdmin() {
               if (usuario.Admin) {
                   next();
               } else {
-                  res.redirect("/catalogo/dashboard");
+                  res.redirect("/catalogo");
               }
           })    
       } else {

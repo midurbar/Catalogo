@@ -73,10 +73,10 @@ app.get('/catalogo/animes/crear', controlAcceso(), (req, res) => {
 app.post('/catalogo/animes/crear', controlAcceso(), crearAnime)
 
 //Ruta de dashboard
-//app.get('/catalogo/dashboard', controlAcceso(), dashboard)
+app.get('/catalogo', controlAcceso(), dashboard)
 
 // Ruta por defecto
-app.get('/catalogo', controlAcceso(), (req, res) => res.redirect("/login"))
+//app.get('/catalogo', controlAcceso(), (req, res) => res.redirect("/login"))
 
 
 //carpeta de media
